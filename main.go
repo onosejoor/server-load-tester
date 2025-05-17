@@ -80,7 +80,7 @@ func testEndPoint(url string, c chan<- ApiRes, wg *sync.WaitGroup) error {
 
 	if err := json.Unmarshal(bodyBytes, &target); err != nil {
 		log.Printf("JSON decode error: %v", err)
-		c <- ApiRes{Success: true, Elapsed: time.Since(start), Status: status}
+		c <- ApiRes{Success: false, Elapsed: time.Since(start), Status: status}
 		return fmt.Errorf("error: %s", err)
 
 	}
